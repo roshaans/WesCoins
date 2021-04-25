@@ -47,7 +47,7 @@ export const getCurrentGasPrices = async () => {
 /**
  * This is the process that will run when you execute the program.
  */
-export const prepareTransaction = async (amountToSend, account, destinationAddress) => {
+export const prepareTransaction = async (amountToSend, account, destinationAddress, library) => {
     /**
      * Fetch the balance of the destination address
      */
@@ -91,9 +91,25 @@ export const prepareTransaction = async (amountToSend, account, destinationAddre
 
     const updatedTx = new EthereumTx(details)
     updatedTx.sign( Buffer.from(process.env.REACT_APP_WALLET_PRIVATE_KEY, 'hex') )
-    const updatedTxSerialized = updatedTx.serialize()
 
-    const transaction = await web3.eth.sendSignedTransaction('0x' + updatedTxSerialized.toString('hex') , function(err, hash) {
+
+
+
+
+    //     })
+
+    // }
+    // let transaction = await web3.eth.sendRawTransaction(details, function(err, hash) {
+    //         if (!err)
+    //             console.log(hash);
+    //         else
+    //             console.log(err);
+    //       });
+    // console.log("signature done")
+    
+    const updatedTxSerialized = updatedTx.serialize()
+    // let transaction = ""
+    const transaction = await web3.eth.sendSignedTransaction( updatedTxSerialized , function(err, hash) {
         if (!err)
             console.log(hash);
         else
@@ -103,10 +119,7 @@ export const prepareTransaction = async (amountToSend, account, destinationAddre
      * We now know the transaction ID, so let's build the public Etherscan url where
      * the transaction details can be viewed.
      */
-    const url = `https://ropsten.etherscan.io/tx/${transaction.transactionHash}`
-    console.log("URL generated")
 
-    window.console.log('URL: ', url);
     return transaction
 }
 

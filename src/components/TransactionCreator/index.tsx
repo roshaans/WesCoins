@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import * as RB from 'react-bootstrap';
 import { useWeb3React as useWeb3ReactCore } from '@web3-react/core';
 import { Web3Provider } from '@ethersproject/providers';
@@ -9,6 +9,8 @@ import { BalanceComponent } from '../Balance';
 import './style.scss';
 
 export const TransactionCreator = () => {
+
+
     const { account, library} = useWeb3ReactCore<Web3Provider>();
     const [isTxLoading, setIsTxLoading] = React.useState(false);
     const [amount, setAmount] = React.useState('');
@@ -18,13 +20,11 @@ export const TransactionCreator = () => {
         setIsTxLoading(true)
         setExecutedTxId(undefined)
 
-        prepareTransaction(amount, account, address).then(transaction => {
-            
+        prepareTransaction(amount, account, address, library).then(transaction => {
+        
             setIsTxLoading(false)
-            if (library && account){
-                // const signer = getSigner(library, account)
-            }  
-            setExecutedTxId(transaction)
+            
+            // setExecutedTxId(transaction)
         }).then((err) => console.log(err))
 
     }
@@ -32,9 +32,9 @@ export const TransactionCreator = () => {
     const handleChangeAmount = (amount: string) => setAmount(amount); 
 
     return (
-        <div className="transaction-creator">
+        <div className="mt-4 transaction-creator">
+              
             <RB.Container>
-                <h3>Transaction creator</h3>
                 <RB.Row className="justify-content-md-center mb-7 mt-4">
                     <div className="form">
                         <RB.Col>

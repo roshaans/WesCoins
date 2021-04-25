@@ -1,38 +1,23 @@
-import { Web3Provider } from '@ethersproject/providers'
-import { ChainId } from '@sushiswap/sdk'
 import { InjectedConnector } from '@web3-react/injected-connector'
+import { NetworkConnector } from '@web3-react/network-connector'
 import { WalletConnectConnector } from '@web3-react/walletconnect-connector'
-import { NetworkConnector } from './NetworkConnector'
 
-
-const RPC = {
-    [ChainId.ROPSTEN]: 'https://ropsten.infura.io/v3/ba2b15fd91e74341a95e1dfd49250f21',
-
+require('dotenv').config()
+const POLLING_INTERVAL = 12000
+const RPC_URLS: { [chainId: number]: string } = {
+  3: 'https://rinkeby.infura.io/v3/' + process.env.REACT_APP_INFURA_ACCESS_TOKEN
 }
+
+export const injected = new InjectedConnector({ supportedChainIds: [3] })
+
 export const network = new NetworkConnector({
-    defaultChainId: 3,
-    urls: RPC
+  urls: {  3: RPC_URLS[3] },
+  defaultChainId: 3
 })
-
-
-let networkLibrary: Web3Provider | undefined
-export function getNetworkLibrary(): Web3Provider {
-    return (networkLibrary = networkLibrary ?? new Web3Provider(network.provider as any))
-}
-
-export const injected = new InjectedConnector({
-    supportedChainIds: [
-        3, // ropsten
-       
-    ]
-})
-
 
 export const walletconnect = new WalletConnectConnector({
-    rpc: {
-        [ChainId.ROPSTEN]: RPC[ChainId.ROPSTEN]
-    },
-    bridge: 'https://bridge.walletconnect.org',
-    qrcode: true,
-    pollingInterval: 15000
+  rpc: { 3: RPC_URLS[3] },
+  bridge: 'https://bridge.walletconnect.org',
+  qrcode: true,
+  pollingInterval: POLLING_INTERVAL
 })

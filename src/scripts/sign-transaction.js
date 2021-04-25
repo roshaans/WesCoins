@@ -12,7 +12,7 @@ const web3 = require('web3')
 export const signTransaction = async (encodedTx) => {
 
     const decodedTx = txDecoder.decodeTx(encodedTx);
-
+    console.log(decodedTx)
     const details = {
         "to": decodedTx.to,
         "value": decodedTx.value._hex,

@@ -1,12 +1,13 @@
 export {}
-
 // import { AbstractConnector } from '@web3-react/abstract-connector'
 // import { UnsupportedChainIdError, useWeb3React } from '@web3-react/core'
 // import React, { useMemo } from 'react'
 // import {injected} from "../../connectors"
-// import { isTransactionRecent, useAllTransactions } from '../../state/transactions/hooks'
 // import { shortenAddress } from '../../utils'
 // import styled, { css } from 'styled-components'
+// import { ButtonSecondary } from '../ButtonLegacy'
+// import { darken, lighten } from 'polished'
+// import { Activity } from 'react-feather'
 
 
 // const IconWrapper = styled.div<{ size?: number }>`
@@ -42,7 +43,7 @@ export {}
 // }
 // `
 
-// const Web3StatusConnect = styled(Web3StatusGeneric)<{ faded?: boolean }>`
+// const Web3StatusConnect = styled(Web3StatusGeneric)<{ faded ? : boolean }>`
 // background-color: ${({ theme }) => theme.primary4};
 // border: none;
 // color: ${({ theme }) => theme.primaryText1};
@@ -51,7 +52,7 @@ export {}
 // :hover,
 // :focus {
 //     border: 1px solid ${({ theme }) => darken(0.05, theme.primary4)};
-//     color: ${({ theme }) => theme.primaryText1};
+//     color: ${({ theme.toString() }) => theme.primaryText1};
 // }
 
 // ${({ faded }) =>
@@ -110,47 +111,30 @@ export {}
 //     const { account, connector, error } = useWeb3React()
 
 
-//     const allTransactions = useAllTransactions()
-
-//     const sortedRecentTransactions = useMemo(() => {
-//         const txs = Object.values(allTransactions)
-//         return txs.filter(isTransactionRecent).sort(newTransactionsFirst)
-//     }, [allTransactions])
-
-//     const pending = sortedRecentTransactions.filter(tx => !tx.receipt).map(tx => tx.hash)
-
-//     const hasPendingTransactions = !!pending.length
-
-//     const toggleWalletModal = useWalletModalToggle()
 
 //     if (account) {
 //         return (
 //             <div
 //                 id="web3-status-connected"
 //                 className="flex items-center rounded-lg bg-dark-1000 text-sm text-secondary py-2 px-3"
-//                 onClick={toggleWalletModal}
 //             >
-//                 {hasPendingTransactions ? (
-//                     <div className="flex justify-between items-center">
-//                         <div className="pr-2">{pending?.length} Pending</div> <Loader stroke="white" />
-//                     </div>
-//                 ) : (
+               
+                
 //                     <div className="mr-2">{ shortenAddress(account)}</div>
-//                 )}
-//                 {!hasPendingTransactions && connector && <StatusIcon connector={connector} />}
+              
 //             </div>
 //         )
 //     } else if (error) {
 //         return (
-//             <Web3StatusError onClick={toggleWalletModal}>
+//             <Web3StatusError>
 //                 <NetworkIcon />
 //                 <Text>{error instanceof UnsupportedChainIdError ? 'Wrong Network' : 'Error'}</Text>
 //             </Web3StatusError>
 //         )
 //     } else {
 //         return (
-//             <Web3StatusConnect id="connect-wallet" onClick={toggleWalletModal} faded={!account}>
-//                 <Text>{t('Connect to a wallet')}</Text>
+//             <Web3StatusConnect id="connect-wallet" faded={!account}>
+//                 <Text>{'Connect to a wallet'}</Text>
 //             </Web3StatusConnect>
 //         )
 //     }
@@ -158,30 +142,12 @@ export {}
 
 // export default function Web3Status() {
 //     const { active, account } = useWeb3React()
-//     const contextNetwork = useWeb3React(NetworkContextName)
-
-
-//     const allTransactions = useAllTransactions()
-
-//     const sortedRecentTransactions = useMemo(() => {
-//         const txs = Object.values(allTransactions)
-//         return txs.filter(isTransactionRecent).sort(newTransactionsFirst)
-//     }, [allTransactions])
-
-//     const pending = sortedRecentTransactions.filter(tx => !tx.receipt).map(tx => tx.hash)
-//     const confirmed = sortedRecentTransactions.filter(tx => tx.receipt).map(tx => tx.hash)
-
-//     if (!contextNetwork.active && !active) {
-//         return null
-//     }
+//     // const contextNetwork = useWeb3React("NETWORK")
 
 //     return (
 //         <>
 //             <Web3StatusInner />
-//             <WalletModal
-//                 pendingTransactions={pending}
-//                 confirmedTransactions={confirmed}
-//             />
+           
 //         </>
 //     )
 // }

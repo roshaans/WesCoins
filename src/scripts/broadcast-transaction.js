@@ -2,7 +2,6 @@
  * Require the credentials that you entered in the .env file
  */
 require('dotenv').config()
-
 const EthereumTx = require('ethereumjs-tx')
 const txDecoder = require('ethereum-tx-decoder');
 const Web3 = require('web3')
@@ -34,7 +33,7 @@ export const broadcastTransaction = async (encodedTx) => {
         "r": decodedTx.r,
         "s": decodedTx.s
     }
-    const updatedTx = new EthereumTx(details);
+    const updatedTx = new EthereumTx(details,{'chain':'ropsten'});
     const updatedTxSerialized = updatedTx.serialize();
     console.log("updated TX Seralized")
     /**
