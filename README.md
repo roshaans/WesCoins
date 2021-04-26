@@ -1,12 +1,3 @@
-# WesCoin
-
-## A Platform for Wesleyan University Students Powered by WesCoins that allows the exchange of services
-
-### A First Look
-
-We have created two things:  WesCoin, a ERC-20 token that runs on that specific network and a platform called WesTasks to utilize those coins.
-
-
 ### WesCoins
 
 Token supply of 5,000,000.
@@ -15,25 +6,25 @@ Contract Address: 0x75afA21C74B4619eE7e910CEcfc93a16f5c0b731
 
 ### Launching of Platform
 
-Upon visiting the website, you will login using a crypto wallet on your phone via QR code or download the metamask extension in a chrome browser.  Ensure that you are on the ROPSTEN test netowrk for Athereum becasue WesCoin is a ERC-20 token that runs on that specific network.
+Upon visiting the website, you will login using a crypto wallet on your phone via QR code or download the metamask extension in a chrome browser.  Ensure that you are on the ROPSTEN test network for Ethereum because WesCoin is a ERC-20 token that runs on that specific network.
 
 New users will automatically receive 5,000 WesCoins upon registration of their public wallet through a google form. 
 
-Upon login, you can accept services that others have offered or propse new ones that
+Upon login, you can accept services that others have offered or propose new ones that
 
-If you head to the View Tasks tab, you can view in real tiem tasks being added.  If you are happy with the reward the person is offering you can accept the offer by clicking on the toggle button.
+If you head to the View Tasks tab, you can view in real-time tasks being added.  If you are happy with the reward the person is offering you can accept the offer by clicking on the toggle button.
 
 ### Features
 
-1. You can accept people's offers.  Once an offer is accepted, it is updated in real time across all platforms.  Only one person can accept an offer
+1. You can accept people's offers.  Once an offer is accepted, it is updated in real-time across all platforms.  Only one person can accept an offer
 
-2. Upon completion of the task, the user who propsoed the task can release the funds to the user who complete the task at hand.
+2. Upon completion of the task, the user who proposed the task can release the funds to the user who completes the task at hand.
 
 3. You can create, edit and delete tasks.
 
 4. Your identity on this platform is anonymous because we use your crypto wallet's public key to identify you.  Users are not limited to transacting coins on the system. They can easily use the send coins tab to send WesCoins to any Athereum address.
 
-5. Your wallet and your WesCoin token balance are synchronized in real time with the blockchain.
+5. Your wallet and your WesCoin token balance are synchronized in real-time with the blockchain.
 
 6. To view all WesCoin transactions visit the following website: https://ropsten.etherscan.io/address/0x2a4e752108518faa91deb3af330c9e6f0939b527
 
@@ -45,7 +36,7 @@ If you head to the View Tasks tab, you can view in real tiem tasks being added. 
 
 Your wallet address is your identification
 
-We didn't want to creat a a central coin stystem in the app so we ade it into a token so that people can use it in the app for several different things.
+We didn't want to create a central coin system in the app so we made it into a token so that people can use it in the app for several different things.
 
 
 # Getting Started with Create React dApp
