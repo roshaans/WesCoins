@@ -6,7 +6,7 @@ Contract Address: 0x75afA21C74B4619eE7e910CEcfc93a16f5c0b731
 
 ### Launching of Platform
 
-Upon visiting the website, you will login using a crypto wallet on your phone via QR code or download the metamask extension in a chrome browser.  Ensure that you are on the ROPSTEN test network for Ethereum because WesCoin is a ERC-20 token that runs on that specific network.
+Upon visiting the website, you will login using a crypto wallet on your phone via QR code or download the metamask extension in a chrome browser.  Ensure that you are on the ROPSTEN test network for Ethereum because WesCoin is only deployed on testnet for now.
 
 New users will automatically receive 5,000 WesCoins upon registration of their public wallet through a google form. 
 
